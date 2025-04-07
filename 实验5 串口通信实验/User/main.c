@@ -3,6 +3,8 @@
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
 
+uint32_t flash_read_32(uint32_t addr);
+void flash_write(uint32_t base_addr, uint32_t* buf,uint32_t len);
 
 int main(void)
 {
@@ -17,6 +19,8 @@ int main(void)
 
     uint8_t cbuf[] = "i am hackerjin";
     uint8_t size =  sizeof(cbuf) /4 ;
+    
+    flash_write(0x08010000 ,(uint32_t*)cbuf, size);
     
     
     while(1)
