@@ -19,10 +19,19 @@
 #define SECTOR10_BASE 0x080C0000
 #define SECTOR11_BASE 0x080E0000
 
-uint32_t flash_read_32(uint32_t addr)
+uint32_t flash_read_word(uint32_t addr)
 {
     return *((volatile uint32_t*)(addr));
     
+}
+void flash_read(uint32_t base_addr, uint32_t * buf, uint32_t len)
+{
+    for(int i = 0; i< len;i++)
+    {
+        
+        buf[i]  = *((volatile uint32_t*)(base_addr + i*4));
+        
+    }
 }
 
 uint8_t get_flash_sector(uint32_t addr)
@@ -76,7 +85,7 @@ void flash_write(uint32_t base_addr, uint32_t* buf,uint32_t len)
     for(uint32_t i = 0; i < len; i++)
     {
         //此种情况下需要清除此地址所在的扇区，为后续数据的写入作准备
-        if(flash_read_32(base_addr + i*4) != 0xFFFFFFFF)
+        if(flash_read_word(base_addr + i*4) != 0xFFFFFFFF)
         {
             erase_init.Sector = get_flash_sector(base_addr + i*4);
             HAL_FLASHEx_Erase(&erase_init,&erase_err);
