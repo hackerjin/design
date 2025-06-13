@@ -1,0 +1,26 @@
+HKCR
+{
+	XRFNet.XRFRay.1 = s 'XRFRay Class'
+	{
+		CLSID = s '{E7045447-BA52-4EC9-8F74-1C9A807750CF}'
+	}
+	XRFNet.XRFRay = s 'XRFRay Class'
+	{
+		CLSID = s '{E7045447-BA52-4EC9-8F74-1C9A807750CF}'
+		CurVer = s 'XRFNet.XRFRay.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E7045447-BA52-4EC9-8F74-1C9A807750CF} = s 'XRFRay Class'
+		{
+			ProgID = s 'XRFNet.XRFRay.1'
+			VersionIndependentProgID = s 'XRFNet.XRFRay'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}

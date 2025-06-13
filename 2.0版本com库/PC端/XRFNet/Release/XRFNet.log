@@ -1,0 +1,7 @@
+﻿  dlldatax.c
+  dllmain.cpp
+  SkyrayLib.lib(SkyrayUtil.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+    正在创建库 C:\Users\yaohongjin\Documents\2.0版本com库\PC端\Release\XRFNet.lib 和对象 C:\Users\yaohongjin\Documents\2.0版本com库\PC端\Release\XRFNet.exp
+  正在生成代码
+  已完成代码的生成
+  XRFNet.vcxproj -> C:\Users\yaohongjin\Documents\2.0版本com库\PC端\Release\XRFNet.dll

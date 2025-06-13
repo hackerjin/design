@@ -1,0 +1,25 @@
+HKCR
+{
+	XRFNet.Apparatus.1 = s 'Apparatus Class'
+	{
+		CLSID = s '{9022B9EA-D842-43C3-AF0C-D83BB61098DA}'
+	}
+	XRFNet.Apparatus = s 'Apparatus Class'
+	{
+		CLSID = s '{9022B9EA-D842-43C3-AF0C-D83BB61098DA}'
+		CurVer = s 'XRFNet.Apparatus.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9022B9EA-D842-43C3-AF0C-D83BB61098DA} = s 'Apparatus Class'
+		{
+			ProgID = s 'XRFNet.Apparatus.1'
+			VersionIndependentProgID = s 'XRFNet.Apparatus'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{F01659FE-0955-4240-B805-D9D371D407E2}'
+		}
+	}
+}

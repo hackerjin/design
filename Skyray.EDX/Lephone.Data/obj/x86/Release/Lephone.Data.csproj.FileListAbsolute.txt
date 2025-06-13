@@ -1,0 +1,9 @@
+C:\Users\yaohongjin\Downloads\8000\Release\Lephone.Data.dll
+C:\Users\yaohongjin\Downloads\8000\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\yaohongjin\Downloads\8000\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\Lephone.Data.dll
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\Release\Lephone.Data.dll
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\Lephone.Data.dll
+D:\三合一探测器计数盒\Release\Lephone.Data.dll
+D:\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\ResolveAssemblyReference.cache
+D:\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Lephone.Data\obj\x86\Release\Lephone.Data.dll

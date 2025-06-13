@@ -1,0 +1,469 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "atlres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 187, 102
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,81,50,14
+    CTEXT           "NetWorkDemo Application v1.0\n\n(c) Copyright 2010",IDC_STATIC,25,57,78,32
+    ICON            IDR_MAINFRAME,IDC_STATIC,55,26,18,20
+    GROUPBOX        "",IDC_STATIC,7,7,115,88
+END
+
+IDD_IP_CONFIG DIALOGEX 0, 0, 181, 218
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "下位机网络设置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "提交",IDOK,68,167,50,14
+    PUSHBUTTON      "取消",IDCANCEL,124,193,50,14
+    LTEXT           "IP地址：",IDC_STATIC,17,95,32,8
+    LTEXT           "子网掩码：",IDC_STATIC,16,112,41,8
+    LTEXT           "网关：",IDC_STATIC,17,130,25,8
+    LTEXT           "DNS服务器：",IDC_STATIC,16,150,46,8
+    CONTROL         "",IDC_IP,"SysIPAddress32",WS_TABSTOP,68,93,100,13
+    CONTROL         "",IDC_SUBNET_MASK,"SysIPAddress32",WS_TABSTOP,68,110,100,13
+    CONTROL         "",IDC_GATEWAY,"SysIPAddress32",WS_TABSTOP,68,129,100,13
+    CONTROL         "",IDC_DNS,"SysIPAddress32",WS_TABSTOP,68,149,100,13
+    GROUPBOX        "网络配置",IDC_STATIC,7,82,166,104
+    GROUPBOX        "获取下位机的IP地址",IDC_STATIC,7,7,166,28
+    PUSHBUTTON      "获取IP",IDC_GET_IP,20,17,60,14
+    GROUPBOX        "设置下位机的IP地址",IDC_STATIC,7,35,166,44
+    LTEXT           "IP地址：",IDC_STATIC,17,48,32,8
+    CONTROL         "",IDC_NEW_IP,"SysIPAddress32",WS_TABSTOP,68,46,100,13
+    PUSHBUTTON      "设置IP",IDC_SET_IP,68,62,50,14
+    PUSHBUTTON      "获取侦听端口",IDC_GET_PORT,109,17,60,14
+END
+
+IDD_MAINDLG DIALOGEX 0, 0, 271, 245
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "XRFThick"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,110,223,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDCANCEL,161,223,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&About...",ID_APP_ABOUT,213,223,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "显示",IDC_CONSOLE,10,216,43,14
+    GROUPBOX        "控制台",IDC_STATIC,7,205,256,33
+    GROUPBOX        "远程服务",IDC_STATIC,7,7,256,36
+    CONTROL         "",IDC_SERVER_IP,"SysIPAddress32",WS_TABSTOP,32,20,100,15
+    LTEXT           "IP：",IDC_STATIC,13,23,16,8
+    LTEXT           "端口：",IDC_STATIC,135,23,26,8
+    EDITTEXT        IDC_SERVER_PORT,167,20,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "启动",IDC_SERVER_CONTROL,219,20,43,14
+    GROUPBOX        "请求远程协助",IDC_STATIC,7,44,256,40
+    CONTROL         "",IDC_REMOTE_IP,"SysIPAddress32",WS_TABSTOP,32,59,100,15
+    LTEXT           "IP：",IDC_STATIC,13,61,16,8
+    LTEXT           "端口：",IDC_STATIC,135,61,26,8
+    EDITTEXT        IDC_REMOTE_PORT,167,59,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "请求协助",IDC_REMOTE_CONTROL,219,59,43,14
+    GROUPBOX        "连接下位机",IDC_STATIC,7,85,256,40
+    CONTROL         "",IDC_APPARATUS_IP,"SysIPAddress32",WS_TABSTOP,32,100,100,15
+    LTEXT           "IP：",IDC_STATIC,13,102,16,8
+    LTEXT           "端口：",IDC_STATIC,135,102,26,8
+    EDITTEXT        IDC_APPARATUS_PORT,167,100,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "连接到仪器",IDC_APPARATUS_CONTROL,219,100,43,14
+    PUSHBUTTON      "网路配置",IDC_IP_CONFIG,7,127,55,18
+    PUSHBUTTON      "X光管",IDC_RAYTUBE,7,146,55,18
+    PUSHBUTTON      "高压控制器",IDC_HIGHVOLTAGE,7,165,55,18
+    PUSHBUTTON      "打开真空泵",IDC_VACUUM_PUMP,7,184,55,18
+    PUSHBUTTON      "电机",IDC_MOTOR,67,127,55,18
+    PUSHBUTTON      "开启电磁铁",IDC_ELECTROMAGNET,67,146,55,18
+    PUSHBUTTON      "打开高度激光",IDC_HEIGHT_LASER,67,165,55,18
+    PUSHBUTTON      "面光源",IDC_SURFACE_SOURCE,67,184,55,18
+    PUSHBUTTON      "多道数据采集器",IDC_DETECTOR,149,150,62,24
+END
+
+IDD_RAYTUBE DIALOGEX 0, 0, 115, 76
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "X光管设定"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "打开",IDOK,7,53,44,14
+    PUSHBUTTON      "退出",IDCANCEL,61,53,44,14
+    LTEXT           "管压：",IDC_STATIC,10,10,25,8
+    EDITTEXT        IDC_VOLTAGE,39,7,67,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "管流：",IDC_STATIC,10,26,25,8
+    EDITTEXT        IDC_CURRENT,39,23,67,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "设定",IDC_SET,7,38,44,14
+    PUSHBUTTON      "获取",IDC_GET,61,38,44,14
+END
+
+IDD_HIGH_VOLTAGE DIALOGEX 0, 0, 307, 28
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "高压控制器"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "退出",IDCANCEL,262,7,39,14
+    PUSHBUTTON      "打开高压",IDOK,152,7,42,14
+    COMBOBOX        IDC_COVER,7,7,101,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "设定",IDC_SET,109,7,42,14
+    PUSHBUTTON      "开启高压指示灯",IDC_PILOT,195,7,65,14
+END
+
+IDD_MOTOR DIALOGEX 0, 0, 126, 135
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "电机控制"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "设定",IDOK,7,114,50,14
+    PUSHBUTTON      "取消",IDCANCEL,63,113,50,14
+    PUSHBUTTON      "查看电机状态",IDC_QUERY,7,7,59,16
+    EDITTEXT        IDC_ID,33,28,54,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "道数：",IDC_STATIC,7,31,25,8
+    LTEXT           "方向：",IDC_STATIC,7,47,25,8
+    LTEXT           "步数：",IDC_STATIC,7,63,25,8
+    LTEXT           "相应接近开关：",IDC_STATIC,7,79,57,8
+    LTEXT           "频率：",IDC_STATIC,7,95,25,8
+    EDITTEXT        IDC_DIRECTION,33,44,54,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_STEP,33,60,54,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_SWITCH,64,76,54,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_RATE,41,92,54,14,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_SURFACE_SOURCE DIALOGEX 0, 0, 89, 81
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "面光源控制器"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "设定",IDOK,21,42,50,14
+    PUSHBUTTON      "退出",IDCANCEL,21,58,50,14
+    LTEXT           "光源一：",IDC_STATIC,7,10,33,8
+    LTEXT           "光源二：",IDC_STATIC,7,26,33,8
+    EDITTEXT        IDC_FRIST_LIGHT,41,7,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_SECOND_LIGHT,41,23,40,14,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_DETECTOR DIALOGEX 0, 0, 367, 273
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "多道数据采集器"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "开始读谱",IDOK,11,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,310,252,50,14
+    GROUPBOX        "设定",IDC_STATIC,9,7,351,68
+    PUSHBUTTON      "设置",IDC_SET,313,14,44,58
+    CONTROL         "基线恢复运行",IDC_BASE_RESUME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,15,64,10
+    CONTROL         "基线恢复门限使用",IDC_BASE_LIMIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,27,80,10
+    CONTROL         "堆积叛弃功能使用",IDC_HEAP_UP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,39,80,10
+    LTEXT           "运行时钟：",IDC_STATIC,99,15,41,8
+    COMBOBOX        IDC_RATE,142,12,65,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "粗调：",IDC_STATIC,99,30,25,8
+    LTEXT           "细调：",IDC_STATIC,99,46,25,8
+    EDITTEXT        IDC_COARSE,142,27,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_FINE,142,43,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "预设时间：",IDC_STATIC,99,62,41,8
+    EDITTEXT        IDC_TIME,142,59,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "梯形上升时间寄存器：",IDC_STATIC,187,30,81,8
+    EDITTEXT        IDC_UP_TIME,270,27,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "梯形顶宽时间寄存器：",IDC_STATIC,187,46,81,8
+    EDITTEXT        IDC_WIDTH_TIME,269,43,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "慢成形门限值：",IDC_STATIC,187,62,57,8
+    EDITTEXT        IDC_SLOW_LIMIT,269,59,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_DATA,12,100,346,146,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "Static",IDC_STATIC,9,75,351,175
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_IP_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_RAYTUBE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 108
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_HIGH_VOLTAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 21
+    END
+
+    IDD_MOTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_SURFACE_SOURCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 82
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_DETECTOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 360
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 266
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""atlres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\NetWorkDemo.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "NetWorkDemo Module"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "NetWorkDemo"
+            VALUE "LegalCopyright", "Copyright 2010"
+            VALUE "OriginalFilename", "NetWorkDemo.exe"
+            VALUE "ProductName", "NetWorkDemo Module"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "NetWorkDemo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ATL_IDS_SCSIZE          "Change the window size"
+    ATL_IDS_SCMOVE          "Change the window position"
+    ATL_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    ATL_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    ATL_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    ATL_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    ATL_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    ATL_IDS_SCRESTORE       "Restore the window to normal size"
+    ATL_IDS_SCTASKLIST      "Activate Task List"
+    ATL_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE 
+BEGIN
+    ATL_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ATL_IDS_MRU_FILE        "Open this document"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

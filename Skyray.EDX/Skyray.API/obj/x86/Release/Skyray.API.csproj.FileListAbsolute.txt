@@ -1,0 +1,15 @@
+C:\Users\yaohongjin\Downloads\8000\Release\Skyray.API.dll
+C:\Users\yaohongjin\Downloads\8000\Release\Skyray.API.pdb
+C:\Users\yaohongjin\Downloads\8000\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\yaohongjin\Downloads\8000\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.dll
+C:\Users\yaohongjin\Downloads\8000\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.pdb
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\Release\Skyray.API.dll
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\Release\Skyray.API.pdb
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.dll
+C:\Users\yaohongjin\Downloads\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.pdb
+D:\三合一探测器计数盒\Release\Skyray.API.dll
+D:\三合一探测器计数盒\Release\Skyray.API.pdb
+D:\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\ResolveAssemblyReference.cache
+D:\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.dll
+D:\三合一探测器计数盒\B Sourcecode\Skyray.EDX\Skyray.API\obj\x86\Release\Skyray.API.pdb

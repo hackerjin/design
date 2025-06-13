@@ -1,0 +1,2 @@
+﻿  stdafx.cpp
+D:\vs2015\VC\atlmfc\include\atlapp.h(39): fatal error C1189: #error:  WTL requires WINVER >= 0x0501

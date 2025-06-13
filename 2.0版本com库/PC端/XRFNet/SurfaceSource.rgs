@@ -1,0 +1,25 @@
+HKCR
+{
+	XRFNet.SurfaceSource.1 = s 'SurfaceSource Class'
+	{
+		CLSID = s '{9FD8EB54-E882-4E70-A732-4C537807D5A9}'
+	}
+	XRFNet.SurfaceSource = s 'SurfaceSource Class'
+	{
+		CLSID = s '{9FD8EB54-E882-4E70-A732-4C537807D5A9}'
+		CurVer = s 'XRFNet.SurfaceSource.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9FD8EB54-E882-4E70-A732-4C537807D5A9} = s 'SurfaceSource Class'
+		{
+			ProgID = s 'XRFNet.SurfaceSource.1'
+			VersionIndependentProgID = s 'XRFNet.SurfaceSource'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}

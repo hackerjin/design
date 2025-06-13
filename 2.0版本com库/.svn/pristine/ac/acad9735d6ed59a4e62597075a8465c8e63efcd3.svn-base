@@ -1,0 +1,25 @@
+HKCR
+{
+	XRFNet.VacuumPump.1 = s 'VacuumPump Class'
+	{
+		CLSID = s '{3F182FD5-66C6-4EDB-8EC0-8C067857D013}'
+	}
+	XRFNet.VacuumPump = s 'VacuumPump Class'
+	{
+		CLSID = s '{3F182FD5-66C6-4EDB-8EC0-8C067857D013}'
+		CurVer = s 'XRFNet.VacuumPump.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3F182FD5-66C6-4EDB-8EC0-8C067857D013} = s 'VacuumPump Class'
+		{
+			ProgID = s 'XRFNet.VacuumPump.1'
+			VersionIndependentProgID = s 'XRFNet.VacuumPump'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}

@@ -1,0 +1,910 @@
+// XRFNet.idl : IDL source for XRFNet
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (XRFNet.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+/**
+ *@class IXRFRayTube
+ *@brief 光管接口
+ *
+ *提供统一的控制光管的方法
+*/
+[
+	object,
+	uuid(B2018705-C2AE-4902-8BA5-0313921E3E0D),
+	dual,
+	nonextensible,
+	helpstring("IXRFRayTube Interface"),
+	pointer_default(unique)
+]
+interface IXRFRayTube : IDispatch{
+	/**
+	*@brief	开启X光管
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(1), helpstring("method Open")] HRESULT Open(void);
+
+	/**
+	*@brief	关闭X光管
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(2), helpstring("method Close")] HRESULT Close(void);
+
+	/**
+	*@brief	获取X光管配置
+	*@param pVoltage 管压
+	*@param pCurrent 管流
+	*@param pUncover 是否开盖
+	*@param uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	*/
+	[id(3), helpstring("method GetConfig")] HRESULT GetConfig([out] USHORT* pVoltage, [out] USHORT* pCurrent, [out] BOOL* pUncover, [in] UINT uTimeOut);
+	
+	
+	/**
+	*@brief	设置X光管配置
+	*@param uVoltage 管压
+	*@param uCurrent 管流
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(4), helpstring("method SetConfig")] HRESULT SetConfig([in] USHORT uVoltage, [in] USHORT uCurrent);
+
+	//[id(5), helpstring("method CheckVersion")] HRESULT CheckVersion([in,out] UINT* pVersion, [in] UINT uTimeOut);
+	[id(5), helpstring("method CheckVersion")] HRESULT CheckVersion([out] UINT pVersion[4], [in] UINT uTimeOut);
+	[id(6), helpstring("method bXRayTubeSel")] HRESULT bXRayTubeSel([in] UINT index);
+
+	[id(7), helpstring("method  GetDoubleVacuum")] HRESULT GetDoubleVacuum([in] UINT uType,[out] UINT* pUpVacuum, [out] UINT* pDownVacuum, UINT uTimeOut);
+
+    [id(8), helpstring("method GetPushButtonInfo")] HRESULT GetPushButtonInfo([out]UCHAR *pState, [in] UINT uTimeOut);
+
+	[id(9), helpstring("method ClearPushButtonInfo")] HRESULT ClearPushButtonInfo();
+
+
+	/**
+	*@brief	打开真空泵
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(10), helpstring("method OpenVacuumPump")] HRESULT OpenVacuumPump(void);
+	
+	/**
+	*@brief	关闭真空泵
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(11), helpstring("method CloseVacuumPump")] HRESULT CloseVacuumPump(void);
+
+	/**
+	*@brief	获取真空度
+	*@param uType 真空度类型
+	*@param pVacuum 真空度
+	*@param uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	*/
+	[id(12), helpstring("method GetVacuum")] HRESULT GetVacuum([in] UINT uType, [out] UINT *pVacuum, [in] UINT uTimeOut);
+
+
+	/**
+	*@brief	打开高压控制器
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(13), helpstring("method OpenHighVoltage")] HRESULT OpenHighVoltage(void);
+
+	/**
+	*@brief	关闭高压控制器
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(14), helpstring("method CloseHighVoltage")] HRESULT CloseHighVoltage(void);
+
+	/**
+	*@brief	允许开盖开高压
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(15), helpstring("method AllowUncover")] HRESULT AllowUncover(void);
+
+	/**
+	*@brief	禁止开盖开高压
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(16), helpstring("method ForbidUncover")] HRESULT ForbidUncover(void);
+
+	/**
+	*@brief	打开高压指示灯
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(17), helpstring("method OpenPilotLamp")] HRESULT OpenPilotLamp(void);
+
+	/**
+	*@brief	关闭高压指示灯
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(18), helpstring("method ClosePilotLamp")] HRESULT ClosePilotLamp(void);
+
+	/**
+	*@brief	打开电磁铁
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(19), helpstring("method OpenElectromagnet")] HRESULT OpenElectromagnet(void);
+	
+	/**
+	*@brief	关闭电磁铁
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(20), helpstring("method CloseElectromagnet")] HRESULT CloseElectromagnet(void);
+
+	[id(21), helpstring("method OpenLaserControl")] HRESULT OpenLaserControl([in] BYTE byteOpen);
+
+    [id(22), helpstring("method SetLaserMode")] HRESULT SetLaserMode([in] BYTE bManual);
+
+
+	/**
+	*@brief	设置面光源
+	*@param	uFirstLight		光源1
+	*@param uSecondLight	光源2
+	*@param	uThirdLight		光源3
+	*@param uFourthLight	光源4
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(23), helpstring("method SetSurfaceLight")] HRESULT SetSurfaceLight([in] USHORT uFirstLight, [in] USHORT uSecondLight, [in] USHORT uThirdLight, [in] USHORT uFourthLight);
+	
+
+	/**
+	*@brief	获取电机状态
+	*@param uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	*/
+	[id(24), helpstring("method GetMotorState")] HRESULT GetMotorState([out]UCHAR *pState, [in] UINT uTimeOut);
+	
+	/**
+	*@brief	移动电机
+	*@param		cID	道数（电机表示符）
+	*@param		cDirection 电机移动方向
+	*@param		uStep		移动步数
+	*@param		cSwitch		响应接近开关
+	*@param		cRate		频率
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(25), helpstring("method MotorMove")] HRESULT MotorMove([in] UCHAR cID, [in] UCHAR cDirection, [in] USHORT uStep, [in] UCHAR cSwitch, [in] UCHAR cRate,[in]USHORT uDutyRatio,[in]USHORT uChamberCoef2);
+	[id(26), helpstring("method GetChamberState")] HRESULT GetChamberState([in,out] UCHAR pState[2], [in] UINT pStateLen, [in] UINT uTimeOut);
+	[id(27), helpstring("method MoveZMotor")] HRESULT MoveZAutoMotor([in] UCHAR cRate);
+    [id(28), helpstring("method GetSwitchInfo")] HRESULT GetSwitchInfo([out]SHORT* pInfo, UINT uTimeOut);
+};
+/**
+ *@class IHighVoltage
+ *@brief 高压控制器接口
+ *
+ *提供统一的控制高压的方法
+*/
+[
+	object,
+	uuid(B3CF2238-258C-4A72-9783-18F5A56F10A9),
+	dual,
+	nonextensible,
+	helpstring("IHighVoltage Interface"),
+	pointer_default(unique)
+]
+interface IHighVoltage : IDispatch{
+	///**
+	//*@brief	打开高压控制器
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(1), helpstring("method Open")] HRESULT Open(void);
+
+	///**
+	//*@brief	关闭高压控制器
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(2), helpstring("method Close")] HRESULT Close(void);
+
+	///**
+	//*@brief	允许开盖开高压
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(3), helpstring("method AllowUncover")] HRESULT AllowUncover(void);
+
+	///**
+	//*@brief	禁止开盖开高压
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(4), helpstring("method ForbidUncover")] HRESULT ForbidUncover(void);
+
+	///**
+	//*@brief	打开高压指示灯
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(5), helpstring("method OpenPilotLamp")] HRESULT OpenPilotLamp(void);
+
+	///**
+	//*@brief	关闭高压指示灯
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(6), helpstring("method ClosePilotLamp")] HRESULT ClosePilotLamp(void);
+};
+/**
+ *@class IVacuumPump
+ *@brief 真空泵接口
+ *
+ *提供统一的控制真空泵的方法
+*/
+[
+	object,
+	uuid(3FF9BF19-80A9-4A16-B457-C9009555C51F),
+	dual,
+	nonextensible,
+	helpstring("IVacuumPump Interface"),
+	pointer_default(unique)
+]
+interface IVacuumPump : IDispatch{
+	///**
+	//*@brief	打开真空泵
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(1), helpstring("method Open")] HRESULT Open(void);
+	//
+	///**
+	//*@brief	关闭真空泵
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(2), helpstring("method Close")] HRESULT Close(void);
+
+	///**
+	//*@brief	获取真空度
+	//*@param uType 真空度类型
+	//*@param pVacuum 真空度
+	//*@param uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	//*/
+	//[id(3), helpstring("method GetVacuum")] HRESULT GetVacuum([in] UINT uType, [out] UINT *pVacuum, [in] UINT uTimeOut);
+	
+	//[id(4), helpstring("方法GetDoubleVacuum")] HRESULT GetDoubleVacuum([in] UINT uType,[out] UINT* pUpVacuum, [out] UINT* pDownVacuum, UINT uTimeOut);
+};
+/**
+ *@class IMotorControl
+ *@brief 电机控制器接口
+ *
+ *提供统一的控制电机的方法
+*/
+[
+	object,
+	uuid(001E2793-623D-481B-B52E-1D6CC76DA85D),
+	dual,
+	nonextensible,
+	helpstring("IMotorControl Interface"),
+	pointer_default(unique)
+]
+interface IMotorControl : IDispatch{
+	///**
+	//*@brief	获取电机状态
+	//*@param uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	//*/
+	//[id(1), helpstring("method GetState")] HRESULT GetState([out]UCHAR *pState, [in] UINT uTimeOut);
+	//
+	///**
+	//*@brief	移动电机
+	//*@param		cID	道数（电机表示符）
+	//*@param		cDirection 电机移动方向
+	//*@param		uStep		移动步数
+	//*@param		cSwitch		响应接近开关
+	//*@param		cRate		频率
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	////[id(2), helpstring("method Move")] HRESULT Move([in] UCHAR cID, [in] UCHAR cDirection, [in] USHORT uStep, [in] UCHAR cSwitch, [in] UCHAR cRate);
+	////[id(2), helpstring("method Move")] HRESULT Move([in] UCHAR cID, [in] UCHAR cDirection, [in] USHORT uStep, [in] UCHAR cSwitch, [in] UCHAR cRate,[in]USHORT uDutyRatio);
+	//[id(2), helpstring("method Move")] HRESULT Move([in] UCHAR cID, [in] UCHAR cDirection, [in] USHORT uStep, [in] UCHAR cSwitch, [in] UCHAR cRate,[in]USHORT uDutyRatio,[in]USHORT uChamberCoef2);
+	////[id(3), helpstring("method GetChamberState")] HRESULT GetChamberState([in,out] UCHAR* pState, [in] UINT pStateLen, [in] UINT uTimeOut);
+	//[id(3), helpstring("method GetChamberState")] HRESULT GetChamberState([in,out] UCHAR pState[2], [in] UINT pStateLen, [in] UINT uTimeOut);
+	//[id(4), helpstring("method MoveZMotor")] HRESULT MoveZAutoMotor([in] UCHAR cRate);
+ //   [id(5), helpstring("method GetSwitchInfo")] HRESULT GetSwitchInfo([out]SHORT* pInfo, UINT uTimeOut);
+	////[id(6), helpstring("method GetPushButtonInfo")] HRESULT GetPushButtonInfo([out]UCHAR *pState, [in] UINT uTimeOut);
+	////[id(7), helpstring("method ClearPushButtonInfo")] HRESULT ClearPushButtonInfo();
+};
+/**
+ *@class IElectromagnet
+ *@brief 电磁铁控制器接口
+ *
+ *提供统一的控制电磁铁的方法
+*/
+[
+	object,
+	uuid(EE6C642C-4B0A-4D0E-9BE3-02EDA39BED4C),
+	dual,
+	nonextensible,
+	helpstring("IElectromagnet Interface"),
+	pointer_default(unique)
+]
+interface IElectromagnet : IDispatch{
+	/**
+	*@brief	打开电磁铁
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(1), helpstring("method Open")] HRESULT Open(void);
+	
+	/**
+	*@brief	关闭电磁铁
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(2), helpstring("method Close")] HRESULT Close(void);
+};
+/**
+ *@class IHeightLaser
+ *@brief 高度激光控制器接口
+ *
+ *提供统一的控制高度激光的方法
+*/
+[
+	object,
+	uuid(D61BCE8A-6193-4A76-BEEA-57A2462D01FB),
+	dual,
+	nonextensible,
+	helpstring("IHeightLaser Interface"),
+	pointer_default(unique)
+]
+interface IHeightLaser : IDispatch{
+	///**
+	//*@brief	打开高度激光
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(1), helpstring("method Open")] HRESULT Open(void);
+	//
+	///**
+	//*@brief	打开高度激光
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(2), helpstring("method Close")] HRESULT Close(void);
+	//[id(3), helpstring("method LaserControl")] HRESULT LaserControl([in] BYTE byteOpen);
+ //   [id(4), helpstring("method SetLaserMode")] HRESULT SetLaserMode([in] BYTE bManual);
+};
+/**
+ *@class ISurfaceSource
+ *@brief 面光源控制器接口
+ *
+ *提供统一的控制面光源的方法
+*/
+[
+	object,
+	uuid(FF18E5ED-E54A-4D97-A2A5-AE335B0AFFE7),
+	dual,
+	nonextensible,
+	helpstring("ISurfaceSource Interface"),
+	pointer_default(unique)
+]
+interface ISurfaceSource : IDispatch{
+	///**
+	//*@brief	设置面光源
+	//*@param	uFirstLight		光源1
+	//*@param uSecondLight	光源2
+	//*@param	uThirdLight		光源3
+	//*@param uFourthLight	光源4
+	//*@return	S_OK		成功
+	//			S_FALSE		失败
+	//*/
+	//[id(1), helpstring("method SetLight")] HRESULT SetLight([in] USHORT uFirstLight, [in] USHORT uSecondLight, [in] USHORT uThirdLight, [in] USHORT uFourthLight);
+};
+/**
+ *@class IDetectData
+ *@brief 谱数据接口
+ *
+ *提供统一的描述谱图数据的方法
+*/
+[
+	object,
+	uuid(6EAC33BA-BAA0-4F4D-96F6-F41C822B5DB7),
+	dual,
+	nonextensible,
+	helpstring("IDetectData Interface"),
+	pointer_default(unique)
+]
+interface IDetectData : IDispatch{
+	/**
+	*@brief	获取数据的数量
+	*@param	pCount 数据的数量
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(1), helpstring("method Init")] HRESULT Init([in] const USHORT *pData, [in] USHORT uDataLen);
+
+	/**
+	*@brief	获取数据的数量
+	*@param	pCount 数据的数量
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(2), helpstring("method Count")] HRESULT Count([out] USHORT *pCount);
+
+	/**
+	*@brief	获取指定数据
+	*@param	uIndex	数据的位置
+	*@param pData	获取到的数据
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(3), helpstring("method At")] HRESULT At([in] USHORT uIndex, [out] USHORT *pData);
+};
+/**
+ *@class IDetectorCallBack
+ *@brief 探测器的回调接口
+ *
+ *提供统一的反馈探测到的谱图数据的方法
+*/
+[
+	object,
+	uuid(A9FE068B-59C6-4156-BDF4-7F886069FB6B),
+	helpstring("IDetectorCallBack Interface"),
+	pointer_default(unique)
+]
+interface IDetectorCallBack : IUnknown
+{
+	/**
+	*@brief	收到谱数据
+	*@param	uQuickCount 快成形个数
+	*@param	uSlowCount 慢成形个数
+	*@param	uSystemTime 系统时间
+	*@param	uLocalTime 本地时间
+	*@param	pData 谱数据接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[helpstring("method OnRead")] HRESULT OnRead([in] UINT uQuickCount, [in] UINT uSlowCount, [in] UINT uSystemTime, [in] UINT uLocalTime, [in] IDetectData *pData);
+};
+/**
+ *@class IDetector
+ *@brief 探测器的接口
+ *
+ *提供统一的控制探测器的方法
+*/
+[
+	object,
+	uuid(E7A21723-40CB-4C61-86EE-867388717F2C),
+	helpstring("IDetector Interface"),
+	pointer_default(unique)
+]
+interface IDetector : IDispatch{
+	/**
+	*@brief	开始读谱
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(1), helpstring("method BeginRead")] HRESULT BeginRead(void);
+
+	/**
+	*@brief	配置多道数据采集器
+	*@param	cBaseResume 基线恢复运行标志(1:on 0:off)
+	*@param cBaseLimit  基线恢复门限使用标志(1:on 0:off)
+	*@param cHeapUP		堆积叛弃功能运行标志(1:on 0:off)
+	*@param cRate		运行时钟（1:80M 0:20M）
+	*@param cCoarse		粗调倍数
+	*@param uFine		细调倍数
+	*@param uTime		预设时间
+	*@param cUPTime		梯形上升时间寄存器
+	*@param cWidthTime  梯形顶宽时间寄存器
+	*@param cSlowLimi	慢成形门限值
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	//[id(2), helpstring("method Config")] HRESULT Config([in] UCHAR cBaseResume, [in] UCHAR cBaseLimit, [in] UCHAR cHeapUP, [in] UCHAR cRate, [in] UCHAR cCoarse, [in] UINT uFine, [in] UINT uTime, [in] UCHAR cUPTime, [in] UCHAR cWidthTime, [in] UCHAR cSlowLimit);
+	[id(2), helpstring("method Config")] HRESULT Config([in] UCHAR cBaseResume, [in] UCHAR cBaseLimit, [in] UCHAR cHeapUP, [in] UCHAR cRate, [in] UCHAR cCoarse, [in] UINT uFine, [in] UINT uTime, [in] UCHAR cUPTime, [in] UCHAR cWidthTime, [in] UCHAR cSlowLimit,[in] double dEnCoef);
+	
+	/**
+	*@brief	设置采集器的总道数
+	*param uCount	采集器的道数
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(3), helpstring("method SetChannelCount")] HRESULT SetChannelCount([in] USHORT uCount);
+	
+	/**
+	*@brief	设置采集器的回调接口
+	*param pCallback 回调接口（主要处理接收谱数据）
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(4), helpstring("method SetCallback")] HRESULT SetCallback([in] IDetectorCallBack* pCallback);
+
+	/**
+	*@brief	检查获取版本(SPI)
+	*param		pCanUse	== TRUE 可以使用。 == FALSE 版本过低不能使用
+	*@param		uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	*/
+	[id(5), helpstring("method CheckVersion")] HRESULT CheckVersion([out] BOOL *pCanUse, [in] UINT uTimeOut);
+	[id(6),helpstring("method SetDpp100Parameter")] HRESULT SetDpp100Parameter([in] BYTE byteDpp100Cmd[68], [in] SHORT intCmdLen);
+	[id(7),helpstring("method GetDpp100Datas")] HRESULT GetDpp100Datas([in] BYTE byteDpp100Cmd[68], [in] SHORT intDpp100CmdLen,UINT uTimeOut, [in,out] BYTE byteGetBytes[16390], [in,out] SHORT* intGetBytesLen);
+    [id(8),helpstring("method GetDMCADatas")] HRESULT GetDMCADatas(UINT uTimeOut,[in,out] BYTE byteGetBytes[16390], [in,out] SHORT* intGetBytesLen);
+};
+/**
+ *@class INetworkCallBack
+ *@brief 网络连接的回调接口
+ *
+ *提供统一的反馈网络状态的方法
+*/
+[
+	object,
+	uuid(B8AD5FFC-3225-403f-BB30-38D54DB1752B),
+	helpstring("INetworkCallBack Interface"),
+	pointer_default(unique)
+]
+interface INetworkCallBack : IUnknown
+{
+	/**
+	*@brief	成功连接到下位机
+	*@return	无意义
+	*/
+	[helpstring("method OnDisconnected")] HRESULT OnConnected();
+
+	/**
+	*@brief	与下位机的链接断开
+	*@return	无意义
+	*/
+	[helpstring("method OnDisconnected")] HRESULT OnDisconnect();
+	
+	/**
+	*@brief	成功连接到远程服务器。
+	*@return	无意义
+	*/
+	[helpstring("method OnRemoteDisconnected")] HRESULT OnRemoteConnected();
+
+	/**
+	*@brief	和远程服务器的链接断开。
+	*@return	无意义
+	*/
+	[helpstring("method OnRemoteDisconnected")] HRESULT OnRemoteDisconnected();
+	
+	/**
+	*@brief	和中转PC的链接断开
+	*@return	无意义
+	*/
+	[helpstring("method OnRemoteServerDisconnected")] HRESULT OnRemoteServerDisconnected();
+};
+/**
+ *@class IApparatus
+ *@brief 下位机接口
+ *
+ *提供统一的设置下位机信息的方法
+*/
+[
+	object,
+	uuid(E5BA37AA-E10A-406D-B55E-1EFB81695DA4),
+	dual,
+	nonextensible,
+	helpstring("IApparatus Interface"),
+	pointer_default(unique)
+]
+interface IApparatus : IDispatch{
+	/**
+	*@brief	设置下位机的网络地址
+	*@pIP			IP地址
+	*@pSubnetMask	子网掩码
+	*@pGateway		网关
+	*@pDNS			域名服务器地址
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(1), helpstring("method Config")] HRESULT Config([in] const UCHAR* pIP, [in] const UCHAR* pSubnetMask, [in] const UCHAR* pGateway, [in] const UCHAR* pDNS);
+	[id(2), helpstring("Method CheckVersion")] HRESULT CheckVersion([out] UINT* pVersion, [in] UINT uTimeOut);
+};
+/**
+ *@class INetworkCallBack
+ *@brief 网络连接接口
+ *
+ *提供统一的建立与仪器连接的方法
+*/
+[
+	object,
+	uuid(0F5C0627-33A9-49B2-8371-A4104389D718),
+	dual,
+	nonextensible,
+	helpstring("IXRFNetwork Interface"),
+	pointer_default(unique)
+]
+interface IXRFNetwork : IDispatch{
+	/**
+	*@brief	链接下位机
+	*@pIP	下位机的IP地址
+	*@uPort 下位机的侦听端口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+ 	[id(1), helpstring("method Connect")] HRESULT Connect([in] const UCHAR* pIP, [in] unsigned short uPort);
+ 	
+	/**
+	*@brief	断开与下位机的链接
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(2), helpstring("method Disconnect")] HRESULT Disconnect(void);
+	
+	/**
+	*@brief	开启远程协助的服务
+	*@pIP	服务的IP地址
+	*@uPort 服务的侦听端口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(3), helpstring("method StartupRemoteServer")] HRESULT StartupRemoteServer([in] const UCHAR* pIP, [in] unsigned short uPort);
+
+	/**
+	*@brief	关闭远程协助的服务
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(4), helpstring("method ShutdownRemoteServer")] HRESULT ShutdownRemoteServer(void);
+	
+	/**
+	*@brief	请求远程协助的服务
+	*@pIP	服务的IP地址
+	*@uPort 服务的侦听端口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(5), helpstring("method ConnectRemoteServer")] HRESULT ConnectRemoteServer([in] const UCHAR* pIP, [in] unsigned short uPort);
+
+	/**
+	*@brief	断开远程协助的服务
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(6), helpstring("method DisconnectRemoteServer")] HRESULT DisconnectRemoteServer(void);
+
+	/**
+	*@brief	打开/关闭调试控制台
+	*@param bShow 打开(非0)/关闭(0)
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(7), helpstring("method ShowConsole")] HRESULT ShowConsole([in] BOOL bShow);
+	
+	/**
+	*@brief  获取X光管的接口
+	*@param ppXRFRayTube X光管接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(8), helpstring("method GetRayTube")] HRESULT GetRayTube([out, retval]IXRFRayTube** ppXRFRayTube);
+
+	/**
+	*@brief  获取高压控制器的接口
+	*@param ppHighVoltage 高压控制器接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(9), helpstring("method GetHighVotage")] HRESULT GetHighVotage([out, retval]IHighVoltage** ppHighVoltage);
+
+	/**
+	*@brief  获取真空泵的接口
+	*@param ppVacuumPump 真空泵接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(10), helpstring("method GetVacuumPump")] HRESULT GetVacuumPump([out, retval]IVacuumPump** ppVacuumPump);
+
+	/**
+	*@brief  获取电机控制器的接口
+	*@param ppMotorControl 电机控制器接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(11), helpstring("method GetMotor")] HRESULT GetMotor([out, retval]IMotorControl** ppMotorControl);
+
+	/**
+	*@brief  获取电磁铁控制器接口
+	*@param ppElectromagnet 电磁铁控制器接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(12), helpstring("method GetElectromagnet")] HRESULT GetElectromagnet([out, retval]IElectromagnet** ppElectromagnet);
+
+	/**
+	*@brief  获取高度激光的接口
+	*@param ppHeightLaser 高度激光接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(13), helpstring("method GetHeightLaser")] HRESULT GetHeightLaser([out, retval]IHeightLaser** ppHeightLaser);
+
+	/**
+	*@brief  获取面光源接口
+	*@param ppSurfaceSource 面光源接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(14), helpstring("method GetSurfaceSource")] HRESULT GetSurfaceSource([out, retval]ISurfaceSource** ppSurfaceSource);
+
+	/**
+	*@brief  获取数据采集器的接口
+	*@param ppDetector 数据采集器的接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(15), helpstring("method GetDetector")] HRESULT GetDetector([out, retval]IDetector** ppDetector);
+
+	/**
+	*@brief  设置接受网络状态通知的回调接口
+	*@param pCallback 网络状态的回调接口
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(16), helpstring("method SetCallback")] HRESULT SetCallback([in]INetworkCallBack* pCallback);
+
+	/**
+	*@brief	检查获取版本(IIC)
+	*@param	uTimeOut	和服务器通讯的超时时间（==0，表示没有超时时间，一直等待服务器的应答）
+	*param pCanUse	== TRUE 可以使用。 == FALSE 版本过低不能使用
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*@warning 本函数是个同步调用，发出请求后会导致调用线程挂起，直到服务器的应答返回才继续。
+	*/
+	[id(17), helpstring("method CheckVersion")] HRESULT CheckVersion([out] BOOL *pCanUse, [in] UINT uTimeOut);
+
+	/**
+	*@brief	输出文本到控制台
+	*@param	pText 将要显示到控制台上的文本
+	*param pCanUse	== TRUE 可以使用。 == FALSE 版本过低不能使用
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(18), helpstring("method ConsolePrint")] HRESULT ConsolePrint([in] const UCHAR *pText);
+
+	/**
+	*@brief	输出文本到控制台
+	*@param	pText 将要显示到控制台上的文本
+	*param pCanUse	== TRUE 可以使用。 == FALSE 版本过低不能使用
+	*@return	S_OK		成功
+				S_FALSE		失败
+	*/
+	[id(19), helpstring("method GetApparatus")] HRESULT GetApparatus([out, retval]IApparatus** ppApparatus);
+};
+
+/** 
+@brief 逻辑层
+*- X光管
+*- 高压控制器
+*- 真空泵
+*- 电机控制器
+*- 电磁铁
+*- 高度激光
+*- 面光源
+*- 多道数据采集器
+*/
+
+/// @cond 忽略COM组件的类工厂对象
+[
+	uuid(F01659FE-0955-4240-B805-D9D371D407E2),
+	version(2.0),
+	helpstring("XRFNet 2.0 Type Library")
+]
+library XRFNetLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(E7045447-BA52-4EC9-8F74-1C9A807750CF),
+		helpstring("XRFRayTube Class")
+	]
+	coclass XRFRay
+	{
+		[default] interface IXRFRayTube;
+	};
+	[
+		uuid(802619F6-EDC4-492C-B86B-7DC1D3B70005),
+		helpstring("HighVoltage Class")
+	]
+	coclass HighVoltage
+	{
+		[default] interface IHighVoltage;
+	};
+	[
+		uuid(3F182FD5-66C6-4EDB-8EC0-8C067857D013),
+		helpstring("VacuumPump Class")
+	]
+	coclass VacuumPump
+	{
+		[default] interface IVacuumPump;
+	};
+	[
+		uuid(D33504EF-6DED-4FF5-88D7-FEDE2C95A616),
+		helpstring("MotorControl Class")
+	]
+	coclass MotorControl
+	{
+		[default] interface IMotorControl;
+	};
+	[
+		uuid(0CA31212-C263-4C5A-82AD-4502A8099918),
+		helpstring("Electromagnet Class")
+	]
+	coclass Electromagnet
+	{
+		[default] interface IElectromagnet;
+	};
+	[
+		uuid(F5DDAFC0-62BA-42C3-972E-189FE55699FB),
+		helpstring("HeightLaser Class")
+	]
+	coclass HeightLaser
+	{
+		[default] interface IHeightLaser;
+	};
+	[
+		uuid(9FD8EB54-E882-4E70-A732-4C537807D5A9),
+		helpstring("SurfaceSource Class")
+	]
+	coclass SurfaceSource
+	{
+		[default] interface ISurfaceSource;
+	};
+	[
+		uuid(E240F897-46B0-4277-A90F-55C9C89EC5C6),
+		helpstring("DetectData Class")
+	]
+	coclass DetectData
+	{
+		[default] interface IDetectData;
+	};
+	[
+		uuid(99171B6C-4EC3-453C-9A61-5A746244A6FE),
+		helpstring("Detector Class")
+	]
+	coclass Detector
+	{
+		[default] interface IDetector;
+	};
+	[
+		uuid(9022B9EA-D842-43C3-AF0C-D83BB61098DA),
+		helpstring("Apparatus Class")
+	]
+	coclass Apparatus
+	{
+		[default] interface IApparatus;
+	};
+	[
+		uuid(14E8BF9B-B96F-4FBE-88BD-1B79EC215D57),
+		helpstring("XRFNetwork Class")
+	]
+	coclass XRFNetwork
+	{
+		[default] interface IXRFNetwork;
+	};
+};
+/// @endcond

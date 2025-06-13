@@ -1,0 +1,25 @@
+HKCR
+{
+	XRFNet.HighVoltage.1 = s 'HighVoltage Class'
+	{
+		CLSID = s '{802619F6-EDC4-492C-B86B-7DC1D3B70005}'
+	}
+	XRFNet.HighVoltage = s 'HighVoltage Class'
+	{
+		CLSID = s '{802619F6-EDC4-492C-B86B-7DC1D3B70005}'
+		CurVer = s 'XRFNet.HighVoltage.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {802619F6-EDC4-492C-B86B-7DC1D3B70005} = s 'HighVoltage Class'
+		{
+			ProgID = s 'XRFNet.HighVoltage.1'
+			VersionIndependentProgID = s 'XRFNet.HighVoltage'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}

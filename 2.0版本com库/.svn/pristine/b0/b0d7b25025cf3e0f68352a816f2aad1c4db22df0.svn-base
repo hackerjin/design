@@ -1,0 +1,24 @@
+HKCR
+{
+	XRFNet.DetectorDlg.1 = s 'DetectorDlg Class'
+	{
+		CLSID = s '{99171B6C-4EC3-453C-9A61-5A746244A6FE}'
+	}
+	XRFNet.DetectorDlg = s 'DetectorDlg Class'
+	{
+		CLSID = s '{99171B6C-4EC3-453C-9A61-5A746244A6FE}'
+		CurVer = s 'XRFNet.DetectorDlg.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {99171B6C-4EC3-453C-9A61-5A746244A6FE} = s 'DetectorDlg Class'
+		{
+			ProgID = s 'XRFNet.DetectorDlg.1'
+			VersionIndependentProgID = s 'XRFNet.DetectorDlg'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}

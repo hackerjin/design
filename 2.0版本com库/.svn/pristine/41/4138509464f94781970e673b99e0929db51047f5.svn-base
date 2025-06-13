@@ -1,0 +1,25 @@
+HKCR
+{
+	XRFNet.DetectData.1 = s 'DetectData Class'
+	{
+		CLSID = s '{E240F897-46B0-4277-A90F-55C9C89EC5C6}'
+	}
+	XRFNet.DetectData = s 'DetectData Class'
+	{
+		CLSID = s '{E240F897-46B0-4277-A90F-55C9C89EC5C6}'
+		CurVer = s 'XRFNet.DetectorData.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E240F897-46B0-4277-A90F-55C9C89EC5C6} = s 'DetectData Class'
+		{
+			ProgID = s 'XRFNet.DetectData.1'
+			VersionIndependentProgID = s 'XRFNet.DetectData'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			'TypeLib' = s '{9129D2F8-5F61-49FF-A89E-91097990D236}'
+		}
+	}
+}
